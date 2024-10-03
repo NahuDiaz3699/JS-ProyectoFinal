@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SprintZone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="Images/Black And White Globe Y2k Streetwear Logo.png" alt="SprintZone Logo" class="logo-imagen">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="Pages/inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="Pages/productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="Pages/contaco.html">Contacto</a></li>
+                <li class="nav-item">
+                    <a href="#" id="carrito-icon">
+                        <i class="fas fa-cart-arrow-down"></i> <!-- Carrito con una flecha hacia abajo -->
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección del Carrito -->
+    <section id="carrito" class="carrito">
+        <h2>Carrito de compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p>Total: $<span id="total">0</span></p>
+        <button id="vaciar-carrito">Vaciar carrito</button>
+    </section>
+
+    <!-- Sección de Bienvenida (Inicio) -->
+    <section id="inicio" class="section inicio">
+        <h2 class="section-title">Bienvenido a SprintZone</h2>
+        <p class="section-text">Tu tienda de running multimarca.</p>
+        <a class="nav-inicio" href="Pages/productos.html">Ver Productos</a>
+        <a class="nav-inicio" href="Pages/contaco.html">Contacto</a>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="section productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <p class="section-text">Explora nuestras últimas colecciones.</p>
+        <ul id="lista-productos"></ul>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="section contacto">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-text">Ponte en contacto con nosotros.</p>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer id="footer" class="hidden-footer">
+        <p>© 2024 SprintZone. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Aquí se incluirá el script de JavaScript más tarde -->
+    <script src="JS/app.js"></script>
+</body>
+</html>

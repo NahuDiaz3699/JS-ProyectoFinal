@@ -1,0 +1,332 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7ed;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header y Navegación */
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+i {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.logo-imagen {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Estilos del navbar */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: larger;
+    padding: 10px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.nav-link:hover {
+    border-color: #fff;
+    transform: scale(1.10);
+}
+
+
+/* Estilos del carrito */
+#carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd; /* Borde más fino */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    z-index: 1000;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#carrito ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#carrito ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#carrito ul li:last-child {
+    border-bottom: none;
+}
+
+#carrito p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.titulo-container {
+    margin-bottom: 20px; /* Espaciado inferior */
+    text-align: center; /* Centra el título */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #000; /* Color de fondo negro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+.titulo-carrito {
+    font-size: 1.8em; /* Tamaño del texto */
+    color: #fff; /* Color del texto blanco */
+    font-weight: bold; /* Peso del texto */
+}
+
+#carrito button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Añadido transform para el efecto de zoom */
+    margin: 5px 0; /* Espacio entre botones */
+}
+
+#carrito button:hover {
+    background-color: #444;
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Secciones Generales */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.inicio {
+    background-color: #f5f5dc;
+}
+
+.nav-inicio {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.nav-inicio:hover {
+    background-color: transparent;
+    border-color: black;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-inicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-inicio:hover::before {
+    opacity: 1;
+}
+
+/* Títulos y Textos */
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Estilo General para el Main y Secciones */
+main {
+    padding: 20px;
+}
+
+.brand-section {
+    margin-bottom: 40px;
+}
+
+.brand-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    margin-top: 75px;
+}
+
+/* Grilla de Productos */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(25% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.price {
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.agregar-carrito {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 5px;
+
+}
+
+.agregar-carrito:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.producto-precio {
+    font-size: 1.1em;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Estilo para el footer oculto */
+.hidden-footer {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.visible-footer {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilos sutiles para IDs sin estilos previos */
+#buscador {
+    background-color: #f7f7ed;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .image-link {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section {
+        padding: 60px 10px;
+    }
+
+    .image-link {
+        width: calc(100% - 20px);
+    }
+}

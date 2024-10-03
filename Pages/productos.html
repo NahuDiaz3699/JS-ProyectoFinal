@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SprintZone</title>
+    <link rel="icon" href="../Images/Black And White Globe Y2k Streetwear Logo.png" type="image/png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <img src="../Images/Black And White Globe Y2k Streetwear Logo.png" alt="SprintZone Logo" class="logo-imagen">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../Pages/inicio.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Pages/productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Pages/contacto.html">Contacto</a></li>
+                <li class="nav-item">
+                    <a href="#" id="carrito-icon">
+                        <i class="fas fa-cart-arrow-down"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección del Carrito -->
+    <section id="carrito" class="carrito" style="display: none;">
+        <div class="titulo-container">
+            <h2 class="titulo-carrito">Carrito de compras</h2>
+        </div>
+        <ul id="lista-carrito"></ul>
+        <p>Total: $<span id="total">0</span></p>
+        <button id="vaciar-carrito">Vaciar carrito</button>
+
+        <!-- Formulario para selección de método de pago -->
+        <div id="metodo-pago" style="display: none;">
+            <h3>Selecciona un método de pago:</h3>
+            <form id="form-metodo-pago">
+                <label>
+                    <input type="radio" name="pago" value="1" /> Efectivo (10% de descuento)
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="pago" value="2" /> Tarjeta de Crédito (sin interés)
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="pago" value="3" /> MercadoPago
+                </label>
+                <br>
+                <button type="button" id="confirmar-pago">Confirmar pago</button>
+            </form>
+        </div>
+        <button id="finalizar-compra">Finalizar compra</button>
+        <p id="total-final"></p>
+
+    </section>
+
+    <main>
+        <!-- Sección Adidas -->
+        <section class="brand-section adidas">
+            <h2>Adidas</h2>
+            <div class="image-gallery">
+                <!-- Productos de Adidas -->
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/adidas adizero Prime SP2.jpeg" alt="Adidas Adizero Prime SP2">
+                    <div class="price">$120.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas Adizero Prime SP2" data-precio="120000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/PrimeXBlanca.jpeg" alt="Adidas PrimeX Blanco">
+                    <div class="price">$350.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas PrimeX Blanco" data-precio="350000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/PrimeXNaranja.jpeg" alt="Adidas PrimeX Naranja">
+                    <div class="price">$350.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas PrimeX Naranja" data-precio="350000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/W.UltraBoost.jpeg" alt="Adidas UltraBoost">
+                    <div class="price">$263.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas UltraBoost" data-precio="263000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/W.UltraBoostW-B.jpeg" alt="Adidas UltraBoost W-B">
+                    <div class="price">$263.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas UltraBoost W-B" data-precio="263000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Adidas-Running/GorraRunning.jpeg" alt="Gorra Negra Adidas">
+                    <div class="price">$40.000</div>
+                    <button class="agregar-carrito" data-producto="Adidas UltraBoost W-B" data-precio="40000">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Nike -->
+        <section class="brand-section nike">
+            <h2>Nike</h2>
+            <div class="image-gallery">
+                <!-- Productos de Nike -->
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/AirZoomAlphafly.jpeg" alt="Nike Air Zoom Alphafly">
+                    <div class="price">$350.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Air Zoom Alphafly" data-precio="350000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/AirZoomAlphaflyBlanca.jpeg" alt="Nike Air Zoom Alphafly Blanca">
+                    <div class="price">$350.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Air Zoom Alphafly Blanca" data-precio="350000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/Atletismo.jpeg" alt="Nike Atletismo">
+                    <div class="price">$275.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Atletismo" data-precio="275000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/Nike Air Zoom Maxfly.jpeg" alt="Nike Air Zoom Maxfly">
+                    <div class="price">$350.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Air Zoom Maxfly" data-precio="350000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/PasaMontania.jpeg" alt="Nike Pasa Montania">
+                    <div class="price">$80.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Pasa Montania" data-precio="80000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Nike-Running/GorraNegra.jpeg" alt="Nike Gorra Negra">
+                    <div class="price">$35.000</div>
+                    <button class="agregar-carrito" data-producto="Nike Pasa Montania" data-precio="35000">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Puma -->
+        <section class="brand-section puma">
+            <h2>Puma</h2>
+            <div class="image-gallery">
+                <!-- Productos de Puma -->
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Puma-Running/FastRoidNitro.jpeg" alt="Puma FastRoid Nitro">
+                    <div class="price">$269.000</div>
+                    <button class="agregar-carrito" data-producto="Puma FastRoid Nitro" data-precio="269000">Agregar al carrito</button>
+                </div>
+                <div class="product-item">
+                    <img class="product-image" src="../Images/Puma-Running/FastRoidNitroBlanca.jpeg" alt="Puma FastRoid Nitro">
+                    <div class="price">$269.000</div>
+                    <button class="agregar-carrito" data-producto="Puma FastRoid Nitro" data-precio="269000">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer" id="footer">
+        <p class="footer-text">&copy; 2024 SprintZone. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
