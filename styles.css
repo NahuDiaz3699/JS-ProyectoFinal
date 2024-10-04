@@ -78,10 +78,10 @@ i {
     top: 20px;
     right: 20px;
     background-color: #fff;
-    border: 1px solid #ddd; /* Borde más fino */
+    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     width: 300px;
     max-height: 400px;
@@ -113,19 +113,19 @@ i {
 }
 
 .titulo-container {
-    margin-bottom: 20px; /* Espaciado inferior */
-    text-align: center; /* Centra el título */
-    padding: 10px; /* Espaciado interno */
-    border: 1px solid #ddd; /* Borde del contenedor */
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: #000; /* Color de fondo negro */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .titulo-carrito {
-    font-size: 1.8em; /* Tamaño del texto */
-    color: #fff; /* Color del texto blanco */
-    font-weight: bold; /* Peso del texto */
+    font-size: 1.8em;
+    color: #fff;
+    font-weight: bold;
 }
 
 #carrito button {
@@ -136,13 +136,13 @@ i {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Añadido transform para el efecto de zoom */
-    margin: 5px 0; /* Espacio entre botones */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px 0;
 }
 
 #carrito button:hover {
     background-color: #444;
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.05);
 }
 
 /* Secciones Generales */
@@ -290,7 +290,7 @@ main {
     transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 0;
     transform: translateY(100%);
-    z-index: 1001; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 1001;
 }
 
 .toast.show {
@@ -300,19 +300,19 @@ main {
 
 /* Estilos del Footer */
 .footer {
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco */
-    text-align: center; /* Centrar texto */
-    padding: 15px 0; /* Espaciado vertical */
-    position: relative; /* Permite ajustes en caso de ser necesario */
-    bottom: 0; /* Fija el footer al final del contenido */
-    width: 100%; /* Ocupa todo el ancho de la página */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Sombra suave en la parte superior */
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .footer-text {
-    margin: 0; /* Elimina márgenes */
-    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    margin: 0;
+    font-size: 0.9em;
 }
 
 
