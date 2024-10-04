@@ -277,25 +277,44 @@ main {
     font-weight: bold;
 }
 
-/* Estilo para el footer oculto */
-.hidden-footer {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+/* Toast Notification Styles */
+.toast {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 10px 0;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 1001; /* Asegúrate de que esté por encima de otros elementos */
 }
 
-.visible-footer {
-    visibility: visible;
+.toast.show {
     opacity: 1;
+    transform: translateY(0);
 }
+
+/* Estilos del Footer */
+.footer {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrar texto */
+    padding: 15px 0; /* Espaciado vertical */
+    position: relative; /* Permite ajustes en caso de ser necesario */
+    bottom: 0; /* Fija el footer al final del contenido */
+    width: 100%; /* Ocupa todo el ancho de la página */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Sombra suave en la parte superior */
+}
+
+.footer-text {
+    margin: 0; /* Elimina márgenes */
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+}
+
 
 /* Estilos sutiles para IDs sin estilos previos */
 #buscador {

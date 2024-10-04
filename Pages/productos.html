@@ -39,22 +39,29 @@
             <h3>Selecciona un método de pago:</h3>
             <form id="form-metodo-pago">
                 <label>
-                    <input type="radio" name="pago" value="1" /> Efectivo (10% de descuento)
+                <input type="radio" name="pago" value="1" /> Efectivo (10% de descuento)
                 </label>
                 <br>
                 <label>
-                    <input type="radio" name="pago" value="2" /> Tarjeta de Crédito (sin interés)
-                </label>
-                <br>
-                <label>
-                    <input type="radio" name="pago" value="3" /> MercadoPago
-                </label>
-                <br>
-                <button type="button" id="confirmar-pago">Confirmar pago</button>
+                <input type="radio" name="pago" value="2" /> Tarjeta de Crédito (sin interés)
+             </label>
+             <br>
+             <select id="select-cuotas" style="display: none;">
+             <option value="0">Seleccionar cuotas</option>
+             <option value="3">3 cuotas</option>
+             <option value="6">6 cuotas</option>
+             </select>
+             <br>
+             <label>
+             <input type="radio" name="pago" value="3" /> MercadoPago
+             </label>
+             <br>
+             <button type="button" id="confirmar-pago">Confirmar pago</button>
             </form>
         </div>
         <button id="finalizar-compra">Finalizar compra</button>
         <p id="total-final"></p>
+
 
     </section>
 
@@ -159,8 +166,13 @@
         <p class="footer-text">&copy; 2024 SprintZone. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../JS/app.js"></script>
+    <!-- Toast Notification -->
+   <div id="toast" class="toast hidden">
+    Producto agregado al carrito.
+   </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../JS/app.js"></script>
 
 </body>
 </html>

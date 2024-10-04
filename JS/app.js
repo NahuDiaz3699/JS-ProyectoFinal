@@ -1,22 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const products = [
-        { name: 'Adidas Adizero Prime SP2', precio: 120000 },
-        { name: 'Adidas PrimeX Blanca', precio: 350000 },
-        { name: 'Adidas PrimeX Naranja', precio: 350000 },
-        { name: 'Adidas UltraBoost', precio: 263000 },
-        { name: 'Adidas UltraBoost W-B', precio: 263000 },
-        { name: 'Adidas Gorra Running', precio: 40000 },
-        { name: 'Nike Air Zoom Alphafly', precio: 350000 },
-        { name: 'Nike Air Zoom Alphafly Blanca', precio: 350000 },
-        { name: 'Nike Atletismo', precio: 275000 },
-        { name: 'Nike Pasa Montania', precio: 80000 },
-        { name: 'Nike Gorra Negra', precio: 35000 },
-        { name: 'Nike Air Zoom Maxfly', precio: 275000 },
-        { name: 'Puma FastRoid Nitro', precio: 269000 },
-        { name: 'Puma FastRoid Nitro Blanca', precio: 269000 }
-    ];
-
+document.addEventListener('DOMContentLoaded', async () => {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    async function fetchProductos() {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+            if (!response.ok) {
+                throw new Error('Error al obtener los productos');
+            }
+            const productos = await response.json();
+            return productos.slice(0, 5);
+        } catch (error) {
+            console.error('Hubo un problema con la solicitud:', error);
+            return [];
+        }
+    }
+
+    const productos = await fetchProductos();
+
+    // Definimos productos simulados
+    const products = productos.map(producto => ({
+        name: producto.title,
+        precio: Math.floor(Math.random() * 100000) + 10000
+    }));
 
     function actualizarCarrito() {
         const listaCarrito = document.getElementById('lista-carrito');
@@ -51,6 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
             carrito.push({ name: nombreProducto, precio: precioProducto, cantidad: 1 });
         }
         actualizarCarrito();
+        mostrarToast();
+    }
+
+    function mostrarToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+
+        // Ocultar el toast después de 3 segundos
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
     }
 
     function eliminarProducto(nombre) {
@@ -67,16 +83,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('vaciar-carrito').onclick = () => {
         carrito = [];
         actualizarCarrito();
+        document.getElementById('total-final').textContent = 'Total a pagar: $0';
     };
 
-    // Aquí integramos SweetAlert para mostrar un mensaje de agradecimiento
     document.getElementById('finalizar-compra').onclick = () => {
         const carritoElement = document.getElementById('carrito');
         carritoElement.style.display = 'none';
-
         const metodoPago = document.getElementById('metodo-pago');
         metodoPago.style.display = carrito.length > 0 ? 'block' : 'none';
     };
+
+    // Manejo de selección de método de pago y cuotas
+    const selectCuotas = document.getElementById('select-cuotas');
+    document.querySelectorAll('input[name="pago"]').forEach(radio => {
+        radio.onchange = () => {
+            if (radio.value === '2') {
+                selectCuotas.style.display = 'block';
+            } else {
+                selectCuotas.style.display = 'none';
+                selectCuotas.value = 0;
+            }
+        };
+    });
 
     document.getElementById('confirmar-pago').onclick = () => {
         const metodoSeleccionado = document.querySelector('input[name="pago"]:checked');
@@ -88,31 +116,39 @@ document.addEventListener('DOMContentLoaded', () => {
         let descuento = 0;
         switch (metodoSeleccionado.value) {
             case '1':
-                descuento = 0.10; // 10% de descuento si elige efectivo
+                descuento = 0.10;
                 break;
             case '2':
             case '3':
-                descuento = 0; // No hay descuento si elige tarjeta o MercadoPago
+                descuento = 0;
                 break;
         }
 
         const totalFinal = carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0) * (1 - descuento);
-
-        // Actualizar el total en el carrito
         const totalFinalElement = document.getElementById('total-final');
         totalFinalElement.textContent = `Total a pagar: $${totalFinal.toLocaleString()}`;
 
-        // Limpiar el carrito y actualizar visualmente
-        carrito = [];
-        actualizarCarrito();
-        document.getElementById('metodo-pago').style.display = 'none';
+        // Lógica para las cuotas
+        const cuotas = selectCuotas.value;
+        let mensajesCuotas = '';
 
-        // Mostrar el mensaje de agradecimiento con SweetAlert
+        if (cuotas > 0) {
+            const cuotaMensual = (totalFinal / cuotas).toLocaleString();
+            mensajesCuotas = `Total pagado: $${totalFinal.toLocaleString()} <br> ${cuotas} cuotas de $${cuotaMensual}`;
+        } else {
+            mensajesCuotas = `Total pagado: $${totalFinal.toLocaleString()}`;
+        }
+
         Swal.fire({
             title: '¡Gracias por tu compra!',
-            text: 'Total pagado: $' + totalFinal.toLocaleString(),
+            html: mensajesCuotas,
             icon: 'success',
             confirmButtonText: 'Aceptar'
+        }).then(() => {
+            carrito = [];
+            localStorage.removeItem('carrito');
+            actualizarCarrito();
+            totalFinalElement.textContent = 'Total a pagar: $0';
         });
     };
 
